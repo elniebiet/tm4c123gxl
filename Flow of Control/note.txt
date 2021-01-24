@@ -1,0 +1,14 @@
+FLOW OF CONTROL
+
+While loop:
+instructions: 
+
+MOVS R0, #0
+B.N  ??main_0 //branch instruction
+CMP  R0, #21 //compare R0 to 21, modifies APSR (Application Program Status Register) set/clear N bit of register
+BLT.N ??main_1 //executes when N-bit is set for APSR or jumps to next instruction
+        //pc address for BLT instruction: eg. 0xdbfc: d = T1 encoding; b == condition; fc = offset fc = -4 == current pc - 4
+		
+disadvantages
+- loop overhead 
+- pipeline stalls for a few cycles : pipeline: fetch, decode, execute

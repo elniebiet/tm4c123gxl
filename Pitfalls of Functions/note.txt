@@ -1,0 +1,23 @@
+PITFALLS OF FUNCTIONS
+
+stack overflow
+
+-> view -> call stack
+-> view -> stack 1 
+
+change stack size
+
+project -> options -> Linker -> override default ->
+							-> edit (default is 2kb) = 1kb is enough
+							-> heap = 0
+							-> save config file: *.icf
+							
+Heap:
+for dynamic memory allocation,
+likes of malloc and free use it
+in real time should not be used, causes more harm than good in embedded systems,
+set it to 0.
+
+
+Static: allocate variable outside the stack, specifically in the RAM, 
+so it can be accessed even when the function returns 

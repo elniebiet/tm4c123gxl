@@ -1,0 +1,6 @@
+VARIABLES AND POINTERS
+
+- Global variables are created in RAM
+- Use watch window to view Global variables
+- Loaded to registers using load instructions LDR : ARM uses RISC architecture, in contrast CISC like x86 in pc 
+- STR instruction to return value to register

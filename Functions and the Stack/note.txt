@@ -1,0 +1,8 @@
+FUNCTIONS AND THE STACK
+
+DRY principle: Do not repeat yourself
+WET: failed DRY, Waste Everyone's Time, We Like Typing, Write Everything Twice
+
+set optimisation to low.
+functions called to the stack
+set require function prototyping
