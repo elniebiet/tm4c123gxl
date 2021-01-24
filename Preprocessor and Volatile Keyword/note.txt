@@ -1,4 +1,0 @@
-PREPROCESSOR and VOLATILE 
-
-the volatile keyword tells the compiler that the variable can change spontaenously
-hence, optimisation is ignored for volatile variables.
