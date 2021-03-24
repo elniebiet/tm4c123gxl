@@ -1,0 +1,135 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000         ; align 32 bit variables to 32-bits
+    2 00000000         ; align op codes to 16 bits
+    3 00000000                 THUMB
+    4 00000000                 AREA             DATA, ALIGN=4
+    5 00000000                 EXPORT           M [DATA,SIZE=4]
+    6 00000000 00 00 00 
+              00       M       SPACE            4
+    7 00000004                 EXPORT           N [DATA,SIZE=4]
+    8 00000004 00 00 00 
+              00       N       SPACE            4
+    9 00000008         
+   10 00000008                 AREA             |.text|, CODE, READONLY, ALIGN=
+2
+   11 00000000                 EXPORT           Start
+   12 00000000 4A0B    Start   LDR              R2,=M       ; R2 = &M, R2 point
+                                                            s to M
+   13 00000002 F04F 0001       MOV              R0,#1       ; Initial seed
+   14 00000006 6010            STR              R0,[R2]     ; M=1
+   15 00000008 4A0A            LDR              R2, =N
+   16 0000000A F44F 6000       MOV              R0, #2048
+   17 0000000E 6010            STR              R0, [R2]
+   18 00000010         
+   19 00000010 4908    loop    LDR              R1, =N
+   20 00000012 6808            LDR              R0, [R1]
+   21 00000014 EA4F 0090       LSR              R0, R0, #2
+   22 00000018 4A05            LDR              R2, =M
+   23 0000001A 6010            STR              R0, [R2]
+   24 0000001C         
+   25 0000001C E7F8            B                loop
+   26 0000001E         ;------------Random------------
+   27 0000001E         ; Return R0= random number
+   28 0000001E         ; Linear congruential generator 
+   29 0000001E         ; from Numerical Recipes by Press et al.
+   30 0000001E 4A04    Random  LDR              R2,=M       ; R2 = &M, R2 point
+                                                            s to M
+   31 00000020 6810            LDR              R0,[R2]     ; R0=M
+   32 00000022 4905            LDR              R1,=1664525
+   33 00000024 FB00 F001       MUL              R0,R0,R1    ; R0 = 1664525*M
+   34 00000028 4904            LDR              R1,=1013904223
+   35 0000002A 4408            ADD              R0,R1       ; 1664525*M+1013904
+                                                            223 
+   36 0000002C 6010            STR              R0,[R2]     ; store M
+   37 0000002E 4770            BX               LR
+   38 00000030                 ALIGN
+   39 00000030                 END
+              00000000 
+              00000000 
+              0019660D 
+              3C6EF35F 
+Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M4 --apcs=interw
+ork --depend=.\main.d -o.\main.o -IC:\Keil_v5\ARM\RV31\INC -IC:\Keil_v5\ARM\CMS
+IS\Include -IC:\Keil_v5\ARM\INC\Luminary --predefine="__EVAL SETA 1" --predefin
+e="__UVISION_VERSION SETA 533" --list=.\main.lst main.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+DATA 00000000
+
+Symbol: DATA
+   Definitions
+      At line 4 in file main.s
+   Uses
+      None
+Comment: DATA unused
+M 00000000
+
+Symbol: M
+   Definitions
+      At line 6 in file main.s
+   Uses
+      At line 5 in file main.s
+      At line 12 in file main.s
+      At line 22 in file main.s
+      At line 30 in file main.s
+
+N 00000004
+
+Symbol: N
+   Definitions
+      At line 8 in file main.s
+   Uses
+      At line 7 in file main.s
+      At line 15 in file main.s
+      At line 19 in file main.s
+
+3 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+.text 00000000
+
+Symbol: .text
+   Definitions
+      At line 10 in file main.s
+   Uses
+      None
+Comment: .text unused
+Random 0000001E
+
+Symbol: Random
+   Definitions
+      At line 30 in file main.s
+   Uses
+      None
+Comment: Random unused
+Start 00000000
+
+Symbol: Start
+   Definitions
+      At line 12 in file main.s
+   Uses
+      At line 11 in file main.s
+Comment: Start used once
+loop 00000010
+
+Symbol: loop
+   Definitions
+      At line 19 in file main.s
+   Uses
+      At line 25 in file main.s
+Comment: loop used once
+4 symbols
+341 symbols in table
