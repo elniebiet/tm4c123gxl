@@ -22,14 +22,7 @@
 ; This is part of revision 9453 of the EK-LM4F120XL Firmware Package.
 ;
 ;******************************************************************************
-; Edited to conform with ISR names as described in 
-;   "Embedded Systems: Introduction to ARM Cortex M Microcontrollers",
-;   ISBN: 978-1469998749, Jonathan Valvano, copyright (c) 2012
-;   "Embedded Systems: Real Time Interfacing to ARM Cortex M Microcontrollers",
-;   ISBN: 978-1463590154, Jonathan Valvano, copyright (c) 2012
-;   "Embedded Systems: Real-Time Operating Systems for ARM Cortex M Microcontrollers",
-;   ISBN: 978-1466468863, Jonathan Valvano, copyright (c) 2013
-;
+; Edited to conform with ISR names 
 ;******************************************************************************
 ;
 ; <o> Stack Size (in Bytes) <0x0-0xFFFFFFFF:8>
