@@ -1,34 +1,0 @@
-Dependencies for Project 'Foreground_Background_Arc', Target 'tm4cgx123': (DO NOT MODIFY !)
-CompilerVersion: 5060960::V5.06 update 7 (build 960)::.\ARMCC
-F (.\bsp.c)(0x601C278E)(-c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\_tm4cgx123-IC:\Users\anieb\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\anieb\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="533" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o .\objects\bsp.o --omf_browse .\objects\bsp.crf --depend .\objects\bsp.d)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E8E9F32)
-I (bsp.h)(0x5A479928)
-I (TM4C123_CMSIS.h)(0x6016252D)
-I (C:\Users\anieb\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\core_cm4.h)(0x5E8F41A2)
-I (C:\Users\anieb\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_version.h)(0x5E8F41A2)
-I (C:\Users\anieb\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5E837742)
-I (C:\Users\anieb\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5E8F41A2)
-I (C:\Users\anieb\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\mpu_armv7.h)(0x5E8F41A2)
-I (system_TM4C123GH6PM.h)(0x5A5E41AC)
-I (miros.h)(0x601C1660)
-F (.\bsp.h)(0x5A479928)()
-F (.\main.c)(0x601C1660)(-c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\_tm4cgx123-IC:\Users\anieb\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\anieb\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="533" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E8E9F32)
-I (bsp.h)(0x5A479928)
-I (miros.h)(0x601C1660)
-F (.\TM4C123_CMSIS.h)(0x6016252D)()
-F (.\miros.h)(0x601C1660)()
-F (.\miros.c)(0x601C2D86)(-c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\_tm4cgx123-IC:\Users\anieb\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\anieb\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="533" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o .\objects\miros.o --omf_browse .\objects\miros.crf --depend .\objects\miros.d)
-I (miros.h)(0x601C1660)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E8E9F32)
-F (RTE\Device\TM4C123GH6PM\startup_TM4C123.s)(0x51B70026)(--cpu Cortex-M4 --pd "__EVAL SETA 1" -g --apcs=interwork --pd "__UVISION_VERSION SETA 533" --pd "_RTE_ SETA 1" --pd "TM4C123GH6PM SETA 1" --pd "_RTE_ SETA 1"--list .\listings\startup_tm4c123.lst --xref -o .\objects\startup_tm4c123.o --depend .\objects\startup_tm4c123.d)
-F (RTE\Device\TM4C123GH6PM\system_TM4C123.c)(0x550A81FA)(-c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\_tm4cgx123-IC:\Users\anieb\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\anieb\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="533" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o .\objects\system_tm4c123.o --omf_browse .\objects\system_tm4c123.crf --depend .\objects\system_tm4c123.d)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E8E9F32)
-I (C:\Users\anieb\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\TM4C123.h)(0x530F0F16)
-I (C:\Users\anieb\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\TM4C123GH6PM.h)(0x550FFE4C)
-I (C:\Users\anieb\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\core_cm4.h)(0x5E8F41A2)
-I (C:\Users\anieb\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_version.h)(0x5E8F41A2)
-I (C:\Users\anieb\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5E837742)
-I (C:\Users\anieb\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5E8F41A2)
-I (C:\Users\anieb\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\mpu_armv7.h)(0x5E8F41A2)
-I (C:\Users\anieb\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\system_TM4C123.h)(0x51B70026)
