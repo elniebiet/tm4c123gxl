@@ -4,21 +4,20 @@
 /* system clock tick [Hz] */
 #define BSP_TICKS_PER_SEC 100U
 
-void BSP_init(void);
+void bsp_init(void);
 
-/* get the current value of the clock tick counter (returns immedately) */
-uint32_t BSP_tickCtr(void);
+uint32_t bsp_tick_ctr(void);
 
-/* delay for a specified number of system clock ticks (polling) */
-void BSP_delay(uint32_t ticks);
+/* delay (polling version) */
+void bsp_delay(uint32_t ticks);
 
-void BSP_ledRedOn(void);
-void BSP_ledRedOff(void);
+void bsp_led_red_on(void);
+void bsp_led_red_off(void);
 
-void BSP_ledBlueOn(void);
-void BSP_ledBlueOff(void);
+void bsp_led_blue_on(void);
+void bsp_led_blue_off(void);
 
-void BSP_ledGreenOn(void);
-void BSP_ledGreenOff(void);
+void bsp_led_green_on(void);
+void bsp_led_green_off(void);
 
 #endif // __BSP_H__

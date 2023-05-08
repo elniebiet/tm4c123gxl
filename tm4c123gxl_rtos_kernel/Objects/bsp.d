@@ -5,4 +5,4 @@
   C:\Users\anieb\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h \
   C:\Users\anieb\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h \
   C:\Users\anieb\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu_armv7.h \
-  system_TM4C123GH6PM.h
+  system_TM4C123GH6PM.h rtos_basic.h

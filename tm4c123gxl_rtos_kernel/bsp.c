@@ -6,6 +6,7 @@
 //#include "TM4C123.h"                    // Device header
 //#include "TM4C123GH6PM.h" /* the TM4C MCU Peripheral Access Layer (TI) */
 #include "TM4C123_CMSIS.h"
+#include "rtos_basic.h"
 
 /* on-board LEDs */
 #define LED_RED   (1U << 1)
@@ -14,11 +15,17 @@
 
 static uint32_t volatile l_tickCtr;
 
-void SysTick_Handler(void) {
+void SysTick_Handler(void) 
+{
     ++l_tickCtr;
+	
+	__disable_irq();
+	os_scheduler();
+	__enable_irq();
 }
 
-void BSP_init(void) {
+void bsp_init(void) 
+{
     SYSCTL->RCGCGPIO  |= (1U << 5); /* enable Run mode for GPIOF */
     SYSCTL->GPIOHBCTL |= (1U << 5); /* enable AHB for GPIOF */
     GPIOF_AHB->DIR |= (LED_RED | LED_BLUE | LED_GREEN);
@@ -27,10 +34,14 @@ void BSP_init(void) {
     SystemCoreClockUpdate();
     SysTick_Config(SystemCoreClock / BSP_TICKS_PER_SEC);
 
+	/* set systick intr priority to highest */
+	NVIC_SetPriority(SysTick_IRQn, 0u);
+	
     __enable_irq();
 }
 
-uint32_t BSP_tickCtr(void) {
+uint32_t bsp_tick_ctr(void) 
+{
     uint32_t tickCtr;
 
     __disable_irq();
@@ -40,38 +51,46 @@ uint32_t BSP_tickCtr(void) {
     return tickCtr;
 }
 
-void BSP_delay(uint32_t ticks) {
-    uint32_t start = BSP_tickCtr();
-    while ((BSP_tickCtr() - start) < ticks) {
+void bsp_delay(uint32_t ticks) 
+{
+    uint32_t start = bsp_tick_ctr();
+    while ((bsp_tick_ctr() - start) < ticks) {
     }
 }
 
-void BSP_ledRedOn(void) {
+void bsp_led_red_on(void)
+{
     GPIOF_AHB->DATA_Bits[LED_RED] = LED_RED;
 }
 
-void BSP_ledRedOff(void) {
+void bsp_led_red_off(void) 
+{
     GPIOF_AHB->DATA_Bits[LED_RED] = 0U;
 }
 
-void BSP_ledBlueOn(void) {
+void bsp_led_blue_on(void) 
+{
     GPIOF_AHB->DATA_Bits[LED_BLUE] = LED_BLUE;
 }
 
-void BSP_ledBlueOff(void) {
+void bsp_led_blue_off(void)
+{
     GPIOF_AHB->DATA_Bits[LED_BLUE] = 0U;
 }
 
-void BSP_ledGreenOn(void) {
+void bsp_led_green_on(void) 
+{
     GPIOF_AHB->DATA_Bits[LED_GREEN] = LED_GREEN;
 }
 
-void BSP_ledGreenOff(void) {
+void bsp_led_green_off(void) 
+{
     GPIOF_AHB->DATA_Bits[LED_GREEN] = 0U;
 }
 
 
-void Q_onAssert(char const *module, int loc) {
+void Q_onAssert(char const *module, int loc) 
+{
     /* TBD: damage control */
     (void)module; /* avoid the "unused parameter" compiler warning */
     (void)loc;    /* avoid the "unused parameter" compiler warning */
