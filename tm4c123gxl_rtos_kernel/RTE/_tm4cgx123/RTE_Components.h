@@ -3,7 +3,7 @@
  * Auto generated Run-Time-Environment Configuration File
  *      *** Do not modify ! ***
  *
- * Project: 'Foreground_Background_Arc' 
+ * Project: 'tm4c_rtos_basic' 
  * Target:  'tm4cgx123' 
  */
 

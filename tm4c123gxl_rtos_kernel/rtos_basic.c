@@ -3,9 +3,16 @@
 /**
 * basic rtos implementation for tm4c123 cortex-m mcu
 */
+#include "TM4C123_CMSIS.h"
 
 os_thread* volatile curr_thread;
 os_thread* volatile next_thread;
+
+#define MAX_NUM_THREADS 32
+
+os_thread* os_thds[MAX_NUM_THREADS + 1];
+uint8_t os_thds_started;
+uint8_t os_curr_thd_idx;
 
 void os_init(void)
 {
@@ -53,11 +60,33 @@ void os_thread_start(os_thread* thread, os_thread_handler thread_handler,
 	{
 		*sp = 0xdeadbeefu;
 	}
+	
+	/* reg thread with os*/
+	/* Q_ASSERT(os_thds_started < MAX_NUM_THREADS); */
+	if(os_thds_started < MAX_NUM_THREADS)
+	{
+		os_thds[os_thds_started] = thread;
+		++os_thds_started;
+	}
+	else
+	{
+		/*assertion*/
+	}
 }
 
 void os_scheduler(void)
 {
-	/* call this func with interrupts disabled */
+	/**
+	* call this func with interrupts disabled 
+	*/
+	++os_curr_thd_idx;
+	if(os_curr_thd_idx == os_thds_started)
+	{
+		os_curr_thd_idx = 0;
+	}
+	
+	next_thread = os_thds[os_curr_thd_idx];
+	
 	if(curr_thread != next_thread)
 	{
 		/* trigger pendsv intr */
@@ -122,4 +151,18 @@ void PendSV_Handler(void) {
 		"  CPSIE         I                 \n"
 		"  BX            lr                \n"
     );
+}
+
+void os_run(void)
+{
+	os_onstartup(); //config and start interrupts
+	
+	/* run first thd */
+	__disable_irq();
+	os_scheduler();
+	__enable_irq();
+	
+	/* we should never get here */
+	/* assert! */
+	
 }

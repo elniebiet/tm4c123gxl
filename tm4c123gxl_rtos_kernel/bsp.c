@@ -24,20 +24,21 @@ void SysTick_Handler(void)
 	__enable_irq();
 }
 
+void os_onstartup(void)
+{
+	SystemCoreClockUpdate();
+    SysTick_Config(SystemCoreClock / BSP_TICKS_PER_SEC);
+
+	/* set systick intr priority to highest */
+	NVIC_SetPriority(SysTick_IRQn, 0u);
+}
+
 void bsp_init(void) 
 {
     SYSCTL->RCGCGPIO  |= (1U << 5); /* enable Run mode for GPIOF */
     SYSCTL->GPIOHBCTL |= (1U << 5); /* enable AHB for GPIOF */
     GPIOF_AHB->DIR |= (LED_RED | LED_BLUE | LED_GREEN);
     GPIOF_AHB->DEN |= (LED_RED | LED_BLUE | LED_GREEN);
-
-    SystemCoreClockUpdate();
-    SysTick_Config(SystemCoreClock / BSP_TICKS_PER_SEC);
-
-	/* set systick intr priority to highest */
-	NVIC_SetPriority(SysTick_IRQn, 0u);
-	
-    __enable_irq();
 }
 
 uint32_t bsp_tick_ctr(void) 
